@@ -13,6 +13,14 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        final Parse.Configuration configuration = new Parse.Configuration.Builder(this)
+                .applicationId("insta")
+                .clientKey("asvg-insta")
+                .server("http://andreavieira-fbu-parsetagram.herokuapp.com/parse")
+                .build();
+
+        Parse.initialize(configuration);
+
         // Use for troubleshooting -- remove this line for production
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
 
