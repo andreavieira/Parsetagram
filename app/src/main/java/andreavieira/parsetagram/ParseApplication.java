@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import andreavieira.parsetagram.model.Post;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -12,6 +13,8 @@ public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        ParseObject.registerSubclass(Post.class);
 
         final Parse.Configuration configuration = new Parse.Configuration.Builder(this)
                 .applicationId("insta")

@@ -1,5 +1,6 @@
 package andreavieira.parsetagram;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
     private Button loginBtn;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Details pertaining to Login
         usernameInput = findViewById(R.id.username_et);
         passwordInput = findViewById(R.id.password_et);
         loginBtn = findViewById(R.id.login_btn);
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //LOGGING IN
     private void login(String username, String password) {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 if (e == null) {
                     Log.d("LoginActivity", "Login successful!");
 
-                    final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(StartActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -55,4 +58,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //REGISTERING
+    // Create the ParseUser
+    ParseUser user = new ParseUser();
 }
