@@ -1,6 +1,5 @@
 package andreavieira.parsetagram;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,21 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class StartActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
+    // Fields and Buttons
     private EditText usernameInput;
     private EditText passwordInput;
     private Button loginBtn;
+    private Button registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // Details pertaining to Login
+        setContentView(R.layout.activity_login);
 
-        //Details pertaining to Login
         usernameInput = findViewById(R.id.username_et);
         passwordInput = findViewById(R.id.password_et);
         loginBtn = findViewById(R.id.login_btn);
@@ -37,9 +37,20 @@ public class StartActivity extends AppCompatActivity {
                 login(username, password);
             }
         });
+
+        // Details pertaining to Register, enter Register activity
+        registerBtn = findViewById(R.id.register_btn);
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    //LOGGING IN
+    // LOGGING IN
     private void login(String username, String password) {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
@@ -47,7 +58,7 @@ public class StartActivity extends AppCompatActivity {
                 if (e == null) {
                     Log.d("LoginActivity", "Login successful!");
 
-                    final Intent intent = new Intent(StartActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -58,8 +69,4 @@ public class StartActivity extends AppCompatActivity {
             }
         });
     }
-
-    //REGISTERING
-    // Create the ParseUser
-    ParseUser user = new ParseUser();
 }
