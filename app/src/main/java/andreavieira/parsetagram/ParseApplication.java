@@ -6,8 +6,6 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 
 import andreavieira.parsetagram.model.Post;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 public class ParseApplication extends Application {
     @Override
@@ -24,7 +22,7 @@ public class ParseApplication extends Application {
 
         Parse.initialize(configuration);
 
-        // Use for troubleshooting -- remove this line for production
+        /** Use for troubleshooting -- remove this line for production
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
 
         // Use for monitoring Parse OkHttp traffic
@@ -47,6 +45,6 @@ public class ParseApplication extends Application {
         // New test creation of object below
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        testObject.saveInBackground();**/
     }
 }

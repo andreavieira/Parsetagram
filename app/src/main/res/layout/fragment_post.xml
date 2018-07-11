@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostingFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:theme="@style/Theme.AppCompat.DayNight"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/cam_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="145dp"
+            android:paddingBottom="10dp"
+            android:text="Take Picture" />
+
+        <ImageView
+            android:id="@+id/ivPostPic"
+            android:layout_width="269dp"
+            android:layout_height="296dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="59dp"
+            android:paddingBottom="10dp"
+            android:src="#fff" />
+
+        <EditText
+            android:id="@+id/description_et"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="225dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="15dp"
+            android:text="Type your caption" />
+
+        <Button
+            android:id="@+id/post_btn"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="82dp"
+            android:text="Post" />
+    </RelativeLayout>
+
+</FrameLayout>

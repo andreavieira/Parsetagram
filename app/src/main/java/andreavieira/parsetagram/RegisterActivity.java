@@ -1,6 +1,5 @@
 package andreavieira.parsetagram;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -55,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (e == null) {
                     Log.d("RegisterActivity", "Sign up successful!");
 
-                    final Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                    final Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

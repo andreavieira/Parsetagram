@@ -1,11 +1,15 @@
 package andreavieira.parsetagram.model;
 
+import android.util.Log;
+
 import com.parse.Parse;
 import com.parse.ParseClassName;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 @ParseClassName("Post")
 public class Post extends ParseObject {
@@ -34,6 +38,7 @@ public class Post extends ParseObject {
     }
 
     public void setUser(ParseUser user) {
+
         put(KEY_USER, user);
     }
 
@@ -51,5 +56,24 @@ public class Post extends ParseObject {
             include("user");
             return this;
         }
+    }
+
+    public static Post newInstance(ParseUser user, ParseFile file, String description) {
+        Post newPost = new Post();
+        newPost.setDescription(description);
+        newPost.setUser(user);
+        newPost.setImage(file);
+        newPost.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) { // if there is no error
+                    Log.d("Post", "Post save successful!");
+                } else {
+                    Log.e("Post", "Post save failure.");
+                    e.printStackTrace();
+                }
+            }
+        });
+        return newPost;
     }
 }
