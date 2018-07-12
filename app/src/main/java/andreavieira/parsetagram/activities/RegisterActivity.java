@@ -1,4 +1,4 @@
-package andreavieira.parsetagram;
+package andreavieira.parsetagram.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import andreavieira.parsetagram.R;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText usernameInput;

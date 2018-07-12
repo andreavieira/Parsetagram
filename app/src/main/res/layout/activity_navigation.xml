@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -21,12 +22,14 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="andreavieira.parsetagram.HomeFragment"
-        android:layout_width="407dp"
-        android:layout_height="532dp"
+        android:name="andreavieira.parsetagram.fragments.HomeFragment"
+        android:layout_width="420dp"
+        android:layout_height="603dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp" />
+        tools:layout_editor_absoluteX="-7dp" />
 
 </android.support.constraint.ConstraintLayout>

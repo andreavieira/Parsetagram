@@ -1,4 +1,4 @@
-package andreavieira.parsetagram;
+package andreavieira.parsetagram.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+
+import andreavieira.parsetagram.R;
 
 public class LoginActivity extends AppCompatActivity {
     // Fields and Buttons

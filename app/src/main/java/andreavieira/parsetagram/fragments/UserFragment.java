@@ -1,4 +1,4 @@
-package andreavieira.parsetagram;
+package andreavieira.parsetagram.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.parse.ParseUser;
+
+import andreavieira.parsetagram.activities.LoginActivity;
+import andreavieira.parsetagram.R;
 
 public class UserFragment extends Fragment {
     Button logoutButton;
