@@ -23,6 +23,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ParseUser stay = ParseUser.getCurrentUser();
+        if (stay != null) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        }
+
         super.onCreate(savedInstanceState);
         // Details pertaining to Login
         setContentView(R.layout.activity_login);
