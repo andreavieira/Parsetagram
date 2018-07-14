@@ -66,7 +66,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="156dp"
-        android:text="Upload a profile image!"
+        android:text="(Broken) Upload a profile image!"
         android:textSize="12sp" />
 
 </RelativeLayout>

@@ -55,6 +55,8 @@ public class Post extends ParseObject {
         return getUser().getParseFile(KEY_PROFILE);
     }
 
+    //public ParseFile setProfileImage() { put(KEY_PROFILE, getUser().profile)}
+
     public String getRelativeTimeAgo() {
         long dateMillis = getCreatedAt().getTime();
         return DateUtils.getRelativeTimeSpanString(dateMillis, System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();

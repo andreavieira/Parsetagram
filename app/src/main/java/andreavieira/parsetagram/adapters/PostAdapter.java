@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.parse.Parse;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -48,20 +51,26 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         // Get usernane
         holder.tvUser.setText(post.getUser().getUsername());
         // Get users profile image
-        GlideApp.with(context)
-                .load(post.getProfileImage().getUrl())
-                .circleCrop()
-                .into(holder.ivUser);
+
+
+        if(ParseUser.getCurrentUser().getParseFile("profile") != null) {
+            ParseFile profPic = ParseUser.getCurrentUser().getParseFile("profile");
+            GlideApp.with(context)
+                    .load(profPic.getUrl())
+                    .circleCrop()
+                    .into(holder.ivUser);
+        }
         // Get post image
         Glide.with(context)
                 .load(post.getImage().getUrl())
                 .into(holder.ivPost);
         // Get likes
+        // TODO - Implement liking posts/counter
         //viewHolder.tvLikes.setText(post.getLikes());
         // Get caption
         holder.tvCaption.setText(post.getCaption());
         // Get timestamp
-        holder.tvDate.setText(post.getRelativeTimeAgo());
+        holder.tvTimestamp.setText(post.getRelativeTimeAgo().toUpperCase());
 
     }
 
@@ -76,7 +85,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public TextView tvUser;
         public TextView tvCaption;
         public TextView tvLikes;
-        public TextView tvDate;
+        public TextView tvTimestamp;
         public ImageView ivLike;
         public ImageView ivComment;
 
@@ -89,7 +98,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvUser = itemView.findViewById(R.id.user_tv);
             tvCaption = itemView.findViewById(R.id.caption_tv);
             tvLikes = itemView.findViewById(R.id.likes_tv);
-            tvDate = itemView.findViewById(R.id.date_tv);
+            tvTimestamp = itemView.findViewById(R.id.timestamp_tv);
             ivLike = itemView.findViewById(R.id.like_iv);
             ivComment = itemView.findViewById(R.id.post_iv);
 

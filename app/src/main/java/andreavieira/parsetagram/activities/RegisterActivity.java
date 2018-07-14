@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -43,7 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String KEY_PROFILE = "profileImage";
 
     public final String APP_TAG = "MyCustomApp";
-    public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password_et);
         emailInput = findViewById(R.id.email_et);
         signupBtn = findViewById(R.id.signup_btn);
+        profileBtn = findViewById(R.id.profile_btn);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         profileBtn = findViewById(R.id.profile_btn);
 
-        signupBtn.setOnClickListener(new View.OnClickListener() {
+        profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -100,6 +101,8 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
+                    Toast.makeText(getApplicationContext(), "Registering has failed, one of the fields is invalid.",
+                            Toast.LENGTH_LONG).show();
                     Log.e("RegisterActivity", "Sign up failure.");
                     e.printStackTrace();
                 }
@@ -116,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-                Log.d(APP_TAG, "failed to create directory");
+                Log.d(APP_TAG, "Failed to create directory");
             }
 
             // Return the file target for the photo based on filename
