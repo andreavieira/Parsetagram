@@ -1,6 +1,7 @@
 package andreavieira.parsetagram.model;
 
 import android.provider.ContactsContract;
+import android.text.format.DateUtils;
 import android.util.Log;
 
 import com.parse.Parse;
@@ -54,11 +55,10 @@ public class Post extends ParseObject {
         return getUser().getParseFile(KEY_PROFILE);
     }
 
-    // TODO - Get user images
-    //public String getProfileImage() {
-        //return getUser();
-    //}
-
+    public String getRelativeTimeAgo() {
+        long dateMillis = getCreatedAt().getTime();
+        return DateUtils.getRelativeTimeSpanString(dateMillis, System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+    }
 
     public static class Query extends ParseQuery<Post> {
         public Query() {

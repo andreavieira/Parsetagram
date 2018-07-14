@@ -97,24 +97,13 @@ public class PostingFragment extends Fragment {
                     public void done(ParseException e) {
                         if (e == null) {
                             createPost(message, parseFile, user);
-                            Log.d("CameraFragment", "parse file successfully saved in background");
+                            Log.d("CameraFragment", "Parse file successfully saved in background");
                         } else {
-                            Log.d("CameraFragment", "parse file failed to saved in background");
+                            Log.d("CameraFragment", "Parse file failed to saved in background");
                             e.printStackTrace();
                         }
                     }
                 });
-                // ByteArrayOutputStream
-            // ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-            // imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-
-            // String path = MediaStore.Images.Media.insertImage(getContext().getContentResolver(), imageBitmap, "Title", null);
-            // Log.d("CameraFragment", "Path: " + path);
-            // return Uri.parse(path);
-
-
-            // ParseFile parseFile = null;
-            // createPost(message, parseFile, user);
             }
         });
     }
@@ -123,7 +112,6 @@ public class PostingFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == -1) {
             Bundle extras = data.getExtras();
-//            imageBitmap = (Bitmap) extras.get("data");
             String path = photoFile.getAbsolutePath();
             Bitmap bitmap = BitmapFactory.decodeFile(path);
             postPic.setImageBitmap(bitmap);

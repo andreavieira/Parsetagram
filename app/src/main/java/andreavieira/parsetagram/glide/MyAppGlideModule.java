@@ -15,4 +15,6 @@ public final class MyAppGlideModule extends AppGlideModule {
 
         builder.setDefaultRequestOptions(new RequestOptions().format(DecodeFormat.PREFER_ARGB_8888));
     }
+
+
 }

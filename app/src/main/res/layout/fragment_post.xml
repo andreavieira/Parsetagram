@@ -17,18 +17,19 @@
 
         <Button
             android:id="@+id/cam_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="145dp"
+            android:layout_marginBottom="60dp"
             android:paddingBottom="10dp"
-            android:text="Take Picture" />
+            android:text="Take Picture"
+            android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/ivPostPic"
             android:layout_width="269dp"
-            android:layout_height="296dp"
+            android:layout_height="280dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="59dp"
@@ -41,20 +42,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="225dp"
+            android:layout_marginBottom="153dp"
             android:ems="10"
+            android:hint="Type your caption."
             android:inputType="textPersonName"
             android:paddingTop="15dp"
-            android:text="Type your caption" />
+            android:textColorLink="@color/colorPrimary"
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/post_btn"
-            android:layout_width="121dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="82dp"
-            android:text="Post" />
+            android:layout_marginBottom="88dp"
+            android:text="Post"
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </FrameLayout>

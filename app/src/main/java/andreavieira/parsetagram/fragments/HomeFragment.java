@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
                                 + "\nusername = " + objects.get(i).getUser().getUsername());
                         // checking if grabbing right info and post object unwraps the user
                         posts.add(0, objects.get(i));
-                        postAdapter.notifyItemInserted(posts.size() - 1);
+                        postAdapter.notifyItemInserted(0);
                     }
                 } else {
                     e.printStackTrace();
@@ -86,10 +86,6 @@ public class HomeFragment extends Fragment {
         postAdapter.clear();
         loadTimeline();
         swipeContainer.setRefreshing(false);
-    }
-
-    public void populateTimeline(){
-
     }
 
 }

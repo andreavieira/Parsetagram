@@ -50,24 +50,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         // Get users profile image
         GlideApp.with(context)
                 .load(post.getProfileImage().getUrl())
-                .transform(new RoundedCornersTransformation(75, 0))
-                .into(holder.ivPost);
+                .circleCrop()
+                .into(holder.ivUser);
         // Get post image
         Glide.with(context)
                 .load(post.getImage().getUrl())
-                .into(holder.ivUser);
+                .into(holder.ivPost);
         // Get likes
         //viewHolder.tvLikes.setText(post.getLikes());
         // Get caption
         holder.tvCaption.setText(post.getCaption());
         // Get timestamp
-        holder.tvDate.setText(post.getTimestamp());
+        holder.tvDate.setText(post.getRelativeTimeAgo());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return timelinePosts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
